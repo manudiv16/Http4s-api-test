@@ -25,7 +25,7 @@ object Http4sTutorial extends IOApp {
     ).orNotFound
 
     BlazeServerBuilder[IO](runtime.compute)
-      .bindHttp(8080, "localhost")
+      .bindHttp(3000, "0.0.0.0")
       .withHttpApp(apis)
       .resource
       .use(_ => IO.never)
