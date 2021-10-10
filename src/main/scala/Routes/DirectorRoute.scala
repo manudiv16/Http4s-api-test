@@ -12,23 +12,9 @@ import org.http4s.implicits._
 import java.time.Year
 import java.util.UUID
 import scala.util.Try
-import scala.collection.mutable
-import scala.collection.mutable
-import scala.util.Try
+import Models.DirecectorModel._
 
 object DirectorRoute {
-
-  type Id = String
-
-  case class Director(firstName: String, lastName: String) {
-    override def toString: Id = s"$firstName $lastName"
-  }
-
-  case class DirectorDetails(
-      firstName: String,
-      lastName: String,
-      genere: String
-  )
 
   object DirectorPath {
     def unapply(str: String): Option[Director] = {
@@ -38,15 +24,6 @@ object DirectorRoute {
       }.toOption
     }
   }
-
-  val directorDetailsDB: mutable.Map[Director, DirectorDetails] =
-    mutable.Map(
-      Director("Zack", "Snyder") -> DirectorDetails(
-        "Zack",
-        "Snyder",
-        "puto flipado"
-      )
-    )
 
   def directorRoutes[F[_]: Monad]: HttpRoutes[F] = {
     val dsl = Http4sDsl[F]
