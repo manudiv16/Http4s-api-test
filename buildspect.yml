@@ -6,5 +6,5 @@ phases:
     run-as: Linux-user-name
     on-failure: ABORT | CONTINUE
     commands:
-      - echo hello
+      - echo Hello, on build
       - echo finished
