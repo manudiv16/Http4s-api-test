@@ -1,7 +1,6 @@
 version: 0.2
 
 phases:
-  install:
   build:
     run-as: Linux-user-name
     on-failure: ABORT | CONTINUE
